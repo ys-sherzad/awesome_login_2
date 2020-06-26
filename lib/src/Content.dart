@@ -1,9 +1,11 @@
-import 'package:awesome_login_2/src/StaggeredEnterAnimation.dart';
+import 'Footer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'Constants.dart';
 import 'Input.dart';
 import 'Button.dart';
 import 'StaggeredEnterAnimation.dart';
+import 'ButtonIcon.dart';
 
 class Content extends StatelessWidget {
   final StaggeredEnterAnimation animation;
@@ -96,8 +98,36 @@ class Content extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  color: Colors.grey,
-                ),
+                    // color: Colors.yellow,
+                    child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          ButtonIcon(
+                            icon: Icon(FontAwesome.google),
+                            iconColor: Colors.red,
+                          ),
+                          ButtonIcon(
+                            icon: Icon(FontAwesome.facebook),
+                            iconColor: Colors.blue,
+                          ),
+                          ButtonIcon(
+                            icon: Icon(FontAwesome.twitter),
+                            iconColor: Colors.blue,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Footer(),
+                    ],
+                  ),
+                )),
               ),
             ],
           ),

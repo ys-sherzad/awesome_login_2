@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+const _color1 = Color.fromRGBO(225, 239, 232, 1);
+const _color2 = Color.fromRGBO(144, 165, 211, 1);
+
 class Top extends StatelessWidget {
   const Top({Key key}) : super(key: key);
 
@@ -14,7 +17,13 @@ class Top extends StatelessWidget {
           child: Container(
             height: size.height / 2,
             width: size.width,
-            decoration: BoxDecoration(color: Colors.red),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [_color1, _color2, _color2],
+              ),
+            ),
           ),
         ),
       ),

@@ -13,7 +13,7 @@ class StaggeredEnterAnimation {
       : input1 = Tween<double>(begin: size.width, end: 0).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(0, 1, curve: Curves.elasticInOut),
+            curve: Interval(0, 0.7, curve: Curves.elasticInOut),
           ),
         ),
         input1Front = Tween<double>(begin: 1, end: -1).animate(
@@ -25,7 +25,7 @@ class StaggeredEnterAnimation {
         input2 = Tween<double>(begin: -size.width, end: 0).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(0, 1, curve: Curves.elasticInOut),
+            curve: Interval(0, 0.7, curve: Curves.elasticInOut),
           ),
         ),
         input2Front = Tween<double>(begin: -1, end: 1).animate(
@@ -37,7 +37,7 @@ class StaggeredEnterAnimation {
         button = Tween<double>(begin: size.width, end: 0).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(0, 1, curve: Curves.elasticInOut),
+            curve: Interval(0, 0.7, curve: Curves.elasticInOut),
           ),
         );
 }

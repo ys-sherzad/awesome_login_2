@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+const _color1 = Color.fromRGBO(225, 239, 232, 1);
+const _color2 = Color.fromRGBO(144, 165, 211, 1);
+
 class Bottom extends StatelessWidget {
   const Bottom({Key key}) : super(key: key);
 
@@ -12,9 +15,19 @@ class Bottom extends StatelessWidget {
         child: ClipPath(
           clipper: DrawClipper(),
           child: Container(
-            height: size.height / 3.5,
+            height: size.height / 2.8,
             width: size.width,
-            decoration: BoxDecoration(color: Colors.purple),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomRight,
+                end: Alignment.topRight,
+                colors: [
+                  _color1,
+                  _color1,
+                  _color2,
+                ],
+              ),
+            ),
           ),
         ),
       ),
@@ -29,7 +42,7 @@ class DrawClipper extends CustomClipper<Path> {
     path.moveTo(0, size.height);
     path.moveTo(size.width * 0.8, size.height);
 
-    var crtlPoint = Offset(size.width * 0.95, size.height * 0.3);
+    var crtlPoint = Offset(size.width * 0.98, size.height * 0.4);
     var endPoint = Offset(size.width * 0.7, 0);
     path.quadraticBezierTo(
         crtlPoint.dx, crtlPoint.dy, endPoint.dx, endPoint.dy);

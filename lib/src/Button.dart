@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+const _color1 = Color.fromRGBO(225, 239, 232, 1);
+const _color2 = Color.fromRGBO(144, 165, 211, 1);
+
 class Button extends StatelessWidget {
   final String title;
   const Button({
@@ -14,7 +17,11 @@ class Button extends StatelessWidget {
       height: 55.0,
       width: size.width,
       decoration: BoxDecoration(
-        color: Colors.white,
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [_color2, _color1],
+        ),
         borderRadius: BorderRadius.circular(30.0),
         boxShadow: [
           BoxShadow(
