@@ -1,8 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'src/Bottom.dart';
+import 'src/Content.dart';
 import 'src/Top.dart';
-
-final kTitle = TextStyle(color: Colors.red, fontSize: 40.0);
 
 void main() {
   runApp(MyApp());
@@ -28,7 +29,29 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 2000),
+      vsync: this,
+    );
+    Timer(Duration(milliseconds: 500), () {
+      _controller.forward();
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -46,18 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Top(),
                 Bottom(),
-                Positioned(
-                  bottom: 0,
-                  child: Container(
-                    height: size.height / 1.2,
-                    width: size.width,
-                    // decoration: BoxDecoration(color: Colors.blue),
-                    child: Align(
-                      alignment: Alignment(0.8, -0.9),
-                      child: Text('hello', style: kTitle),
-                    ),
-                  ),
-                ),
+                Content(controller: _controller, size: size),
               ],
             ),
           ),
