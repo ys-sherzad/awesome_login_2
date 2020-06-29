@@ -31,10 +31,16 @@ class Content extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.centerRight,
-                child: Container(
-                  // color: Colors.purple,
-                  child: Text('Login', style: kTitle),
-                ),
+                child: AnimatedBuilder(
+                    animation: animation.controller,
+                    builder: (context, child) {
+                      return Opacity(
+                        opacity: animation.title.value,
+                        child: Container(
+                          child: Text('Login', style: kTitle),
+                        ),
+                      );
+                    }),
               ),
               Expanded(
                 flex: 2,
@@ -44,43 +50,63 @@ class Content extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        AnimatedBuilder(
-                            animation: animation.controller,
-                            builder: (context, child) {
-                              return Transform.translate(
-                                offset: Offset(animation.input1.value, 0),
-                                child: Input(
-                                  // backOffset: 1,
-                                  // frontOffset: -1,
-
-                                  backOffset: 1,
-                                  frontOffset: animation.input1Front.value,
-                                  backRadiusLeft: false,
-                                  placeholder: 'Email',
-                                ),
-                              );
-                            }),
-                        AnimatedBuilder(
-                            animation: animation.controller,
-                            builder: (context, child) {
-                              return Transform.translate(
-                                offset: Offset(animation.input2.value, 0),
-                                child: Input(
-                                  // backOffset: -1,
-                                  // frontOffset: 1,
-
-                                  backOffset: -1,
-                                  frontOffset: animation.input2Front.value,
-                                  backRadiusLeft: true,
-                                  placeholder: 'Password',
-                                ),
-                              );
-                            }),
-                        Container(
-                          height: 40.0,
-                          alignment: Alignment.centerRight,
-                          child: Text('Forgot password?'),
+                        Column(
+                          children: [
+                            AnimatedBuilder(
+                                animation: animation.controller,
+                                builder: (context, child) {
+                                  return Transform.translate(
+                                    offset: Offset(animation.input1.value, 0),
+                                    child: Input(
+                                      backOffset: 1,
+                                      frontOffset: animation.input1Front.value,
+                                      backgroundPosition: 'right',
+                                      icon: Icon(
+                                        FontAwesome.envelope,
+                                        color: Colors.white,
+                                        size: 20.0,
+                                      ),
+                                      placeholder: 'Email',
+                                    ),
+                                  );
+                                }),
+                            SizedBox(
+                              height: 16.0,
+                            ),
+                            AnimatedBuilder(
+                              animation: animation.controller,
+                              builder: (context, child) {
+                                return Transform.translate(
+                                  offset: Offset(animation.input2.value, 0),
+                                  child: Input(
+                                    backOffset: -1,
+                                    frontOffset: animation.input2Front.value,
+                                    backgroundPosition: 'left',
+                                    icon: Icon(
+                                      FontAwesome.key,
+                                      color: Colors.white,
+                                      size: 22.0,
+                                    ),
+                                    placeholder: 'Password',
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
                         ),
+                        AnimatedBuilder(
+                            animation: animation.controller,
+                            builder: (context, child) {
+                              return Opacity(
+                                opacity: animation.forgotText.value,
+                                child: Container(
+                                  height: 40.0,
+                                  alignment: Alignment.centerRight,
+                                  child: Text('Forgot password?',
+                                      style: kForgotPassTextStyle),
+                                ),
+                              );
+                            }),
                         AnimatedBuilder(
                             animation: animation.controller,
                             builder: (context, child) {
@@ -98,7 +124,6 @@ class Content extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                    // color: Colors.yellow,
                     child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50.0),
                   child: Column(
@@ -124,7 +149,9 @@ class Content extends StatelessWidget {
                       SizedBox(
                         height: 30.0,
                       ),
-                      Footer(),
+                      Footer(
+                        animation: animation,
+                      ),
                     ],
                   ),
                 )),

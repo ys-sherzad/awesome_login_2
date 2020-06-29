@@ -1,5 +1,5 @@
+import 'Constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class ButtonIcon extends StatelessWidget {
   final Icon icon;
@@ -10,6 +10,7 @@ class ButtonIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      shadowColor: kShadowColor,
       borderRadius: BorderRadius.circular(32.0),
       elevation: 8,
       clipBehavior: Clip.hardEdge,

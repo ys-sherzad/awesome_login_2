@@ -38,12 +38,16 @@ class _MyHomePageState extends State<MyHomePage>
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(milliseconds: 1500),
       vsync: this,
     );
-    Timer(Duration(milliseconds: 500), () {
+    Timer(Duration(milliseconds: 200), () {
       _controller.forward();
     });
+
+    // Timer(Duration(milliseconds: 2000), () {
+    //   _controller.reverse();
+    // });
   }
 
   @override
@@ -56,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xfffffdf8),
         body: SafeArea(
           top: false,
           bottom: false,
