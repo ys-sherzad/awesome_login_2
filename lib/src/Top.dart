@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 
 const _color1 = Color(0xffed4264);
 const _color2 = Color(0xffffedbc);
-const _color3 = Color(0xff7be495);
-// const _color2 = Color.fromRGBO(225, 239, 232, 1);
-// const _color1 = Color.fromRGBO(144, 165, 211, 1);
 
 class Top extends StatelessWidget {
   const Top({Key key}) : super(key: key);

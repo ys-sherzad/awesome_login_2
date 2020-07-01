@@ -32,6 +32,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
+  String _currentPage = 'Login';
 
   @override
   void initState() {
@@ -45,15 +46,34 @@ class _MyHomePageState extends State<MyHomePage>
       _controller.forward();
     });
 
-    // Timer(Duration(milliseconds: 2000), () {
-    //   _controller.reverse();
-    // });
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.dismissed) {
+        if (_currentPage == 'Login') {
+          setState(() {
+            _currentPage = 'Register';
+          });
+        } else {
+          setState(() {
+            _currentPage = 'Login';
+          });
+        }
+        _controller.forward();
+      }
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
     _controller.dispose();
+  }
+
+  void switchScreen() {
+    _controller.reverse();
+  }
+
+  void goBack() {
+    _controller.reverse();
   }
 
   @override
@@ -68,12 +88,16 @@ class _MyHomePageState extends State<MyHomePage>
             height: double.infinity,
             width: double.infinity,
             child: Stack(
-              // alignment: Alignment.center,
-              // fit: StackFit.loose,
               children: [
                 Top(),
                 Bottom(),
-                Content(controller: _controller, size: size),
+                Content(
+                  controller: _controller,
+                  size: size,
+                  switchScreen: switchScreen,
+                  currentPage: _currentPage,
+                  goBack: goBack,
+                ),
               ],
             ),
           ),

@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'Constants.dart';
-
-// const _color2 = Color.fromRGBO(225, 239, 232, 1);
-// const _color1 = Color.fromRGBO(144, 165, 211, 1);
-
-// const _color = Color.fromRGBO(182, 200, 221, 1);
 
 const _color1 = Color(0xffff5e62);
 const _colorFront = Color(0xfffffdf8);
-const _color2 = Color(0xffffedbc);
-
-// final _color =
 
 class Input extends StatelessWidget {
   final double backOffset;
