@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-const _color1 = Color(0xffed4264);
-const _color2 = Color(0xffffedbc);
+import 'Colorlib.dart';
 
 class Top extends StatelessWidget {
   const Top({Key key}) : super(key: key);
@@ -21,7 +19,7 @@ class Top extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomLeft,
-                colors: [_color1, _color2],
+                colors: [Colorlib.primary, Colorlib.secondary],
               ),
             ),
           ),

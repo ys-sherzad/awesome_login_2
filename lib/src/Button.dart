@@ -1,8 +1,5 @@
-import 'package:awesome_login_2/src/Constants.dart';
 import 'package:flutter/material.dart';
-
-const _color1 = Color(0xffed4264);
-const _color2 = Color(0xffffedbc);
+import 'Colorlib.dart';
 
 class Button extends StatelessWidget {
   final String title;
@@ -26,14 +23,14 @@ class Button extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              _color1,
-              _color2,
+              Colorlib.primary,
+              Colorlib.secondary,
             ],
           ),
           borderRadius: BorderRadius.circular(30.0),
           boxShadow: [
             BoxShadow(
-              color: kShadowColor,
+              color: Colorlib.shadow,
               offset: Offset(0.0, 3.0),
               blurRadius: 12.0,
               spreadRadius: 3,
@@ -43,7 +40,7 @@ class Button extends StatelessWidget {
         child: Center(
           child: Text(title,
               style: TextStyle(
-                  color: Colors.white,
+                  color: Colorlib.background,
                   fontWeight: FontWeight.w700,
                   fontSize: 20.0)),
         ),

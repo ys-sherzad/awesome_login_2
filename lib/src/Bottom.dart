@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-const _color1 = Color(0xffed4264);
-const _color2 = Color(0xffffedbc);
+import 'Colorlib.dart';
 
 class Bottom extends StatelessWidget {
   const Bottom({Key key}) : super(key: key);
@@ -23,8 +21,8 @@ class Bottom extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  _color1,
-                  _color2,
+                  Colorlib.primary,
+                  Colorlib.secondary,
                 ],
               ),
             ),

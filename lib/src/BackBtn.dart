@@ -1,8 +1,5 @@
-import 'package:awesome_login_2/src/Constants.dart';
 import 'package:flutter/material.dart';
-
-const _color1 = Color(0xffed4264);
-const _color2 = Color(0xffffedbc);
+import 'Colorlib.dart';
 
 class BackBtn extends StatelessWidget {
   final VoidCallback onBackBtnPress;
@@ -25,14 +22,14 @@ class BackBtn extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                _color1,
-                _color2,
+                Colorlib.primary,
+                Colorlib.secondary,
               ],
             ),
             borderRadius: BorderRadius.circular(30.0),
             boxShadow: [
               BoxShadow(
-                color: kShadowColor,
+                color: Colorlib.shadow,
                 offset: Offset(0.0, 3.0),
                 blurRadius: 12.0,
                 spreadRadius: 3,
@@ -45,12 +42,12 @@ class BackBtn extends StatelessWidget {
               width: size.width - 42,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.0),
-                color: Colors.white,
+                color: Colorlib.background,
               ),
               child: Center(
                 child: Text('Go back',
                     style: TextStyle(
-                        color: Color(0xffed4264),
+                        color: Colorlib.primary,
                         fontWeight: FontWeight.w700,
                         fontSize: 18.0)),
               ),

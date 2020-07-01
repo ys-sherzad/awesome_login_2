@@ -1,15 +1,16 @@
+import 'Colorlib.dart';
 import 'Footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'Constants.dart';
 import 'Input.dart';
 import 'Button.dart';
-import 'StaggeredEnterAnimation.dart';
+import 'StaggeredAnimation.dart';
 import 'ButtonIcon.dart';
 import 'BackBtn.dart';
 
 class Content extends StatelessWidget {
-  final StaggeredEnterAnimation animation;
+  final StaggeredAnimation animation;
   final VoidCallback switchScreen;
   final VoidCallback goBack;
   final Size size;
@@ -21,18 +22,19 @@ class Content extends StatelessWidget {
     this.currentPage,
     this.goBack,
     @required AnimationController controller,
-  })  : animation = StaggeredEnterAnimation(controller, size),
+  })  : animation = StaggeredAnimation(controller, size),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     String _title = currentPage == 'Login' ? 'Login' : 'Register';
-    String _input1Placeholer = currentPage == 'Login' ? 'Email' : 'Username';
-    String _input2Placeholer = currentPage == 'Login' ? 'Password' : 'Email';
-
+    String _input1Placeholer = 'Email';
+    String _input2Placeholer = 'Password';
+    String _input3Placeholder = 'Confirm password';
     MainAxisAlignment axisAlignment = currentPage == 'Login'
         ? MainAxisAlignment.spaceEvenly
         : MainAxisAlignment.spaceAround;
+
     return Positioned(
       bottom: 0,
       child: Container(
@@ -76,7 +78,7 @@ class Content extends StatelessWidget {
                                       backgroundPosition: 'right',
                                       icon: Icon(
                                         FontAwesome.envelope,
-                                        color: Colors.white,
+                                        color: Colorlib.background,
                                         size: 20.0,
                                       ),
                                       placeholder: _input1Placeholer,
@@ -97,7 +99,7 @@ class Content extends StatelessWidget {
                                     backgroundPosition: 'left',
                                     icon: Icon(
                                       FontAwesome.key,
-                                      color: Colors.white,
+                                      color: Colorlib.background,
                                       size: 22.0,
                                     ),
                                     placeholder: _input2Placeholer,
@@ -121,10 +123,10 @@ class Content extends StatelessWidget {
                                       backgroundPosition: 'left',
                                       icon: Icon(
                                         FontAwesome.key,
-                                        color: Colors.white,
+                                        color: Colorlib.background,
                                         size: 22.0,
                                       ),
-                                      placeholder: 'Confirm password',
+                                      placeholder: _input3Placeholder,
                                     ),
                                   );
                                 },
@@ -186,21 +188,21 @@ class Content extends StatelessWidget {
                               scale: animation.socialBtn1,
                               child: ButtonIcon(
                                 icon: Icon(FontAwesome.google),
-                                iconColor: Colors.red,
+                                iconColor: Colorlib.google,
                               ),
                             ),
                             ScaleTransition(
                               scale: animation.socialBtn2,
                               child: ButtonIcon(
                                 icon: Icon(FontAwesome.facebook),
-                                iconColor: Colors.blue,
+                                iconColor: Colorlib.fb,
                               ),
                             ),
                             ScaleTransition(
                               scale: animation.socialBtn2,
                               child: ButtonIcon(
                                 icon: Icon(FontAwesome.twitter),
-                                iconColor: Colors.blue,
+                                iconColor: Colorlib.twitter,
                               ),
                             ),
                           ],
@@ -209,8 +211,9 @@ class Content extends StatelessWidget {
                           height: 30.0,
                         ),
                         ScaleTransition(
-                            scale: animation.footer,
-                            child: Footer(onSignup: switchScreen)),
+                          scale: animation.footer,
+                          child: Footer(onSignup: switchScreen),
+                        ),
                       ],
                     ),
                   )),

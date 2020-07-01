@@ -1,9 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'src/Bottom.dart';
 import 'src/Content.dart';
 import 'src/Top.dart';
+import 'src/Colorlib.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -80,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Color(0xfffffdf8),
+        backgroundColor: Colorlib.background,
         body: SafeArea(
           top: false,
           bottom: false,

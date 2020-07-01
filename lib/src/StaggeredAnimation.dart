@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class StaggeredEnterAnimation {
+class StaggeredAnimation {
   final AnimationController controller;
   final Animation<double> title;
   final Animation<double> input1;
@@ -18,7 +18,7 @@ class StaggeredEnterAnimation {
   final Animation<double> footer;
   final Size size;
 
-  StaggeredEnterAnimation(this.controller, this.size)
+  StaggeredAnimation(this.controller, this.size)
       : title = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,

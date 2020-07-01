@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Constants.dart';
-
-const _color1 = Color(0xffff5e62);
-const _colorFront = Color(0xfffffdf8);
+import 'Colorlib.dart';
 
 class Input extends StatelessWidget {
   final double backOffset;
@@ -40,7 +38,7 @@ class Input extends StatelessWidget {
           width: size.width * 0.2,
           padding: sidePadding,
           decoration: BoxDecoration(
-            color: _color1,
+            color: Colorlib.inputIconBkground,
             borderRadius: BorderRadius.all(Radius.circular(30.0)),
           ),
           child: Align(
@@ -56,11 +54,11 @@ class Input extends StatelessWidget {
           height: 50.0,
           width: size.width * 0.78,
           decoration: BoxDecoration(
-            color: _colorFront,
+            color: Colorlib.background,
             borderRadius: BorderRadius.circular(30.0),
             boxShadow: [
               BoxShadow(
-                color: kShadowColor,
+                color: Colorlib.shadow,
                 offset: Offset(0.0, 5.0),
                 blurRadius: 9.0,
                 spreadRadius: 2,

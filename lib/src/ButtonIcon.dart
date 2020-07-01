@@ -1,5 +1,5 @@
-import 'Constants.dart';
 import 'package:flutter/material.dart';
+import 'Colorlib.dart';
 
 class ButtonIcon extends StatelessWidget {
   final Icon icon;
@@ -10,11 +10,11 @@ class ButtonIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      shadowColor: kShadowColor,
+      shadowColor: Colorlib.shadow,
       borderRadius: BorderRadius.circular(32.0),
       elevation: 8,
       clipBehavior: Clip.hardEdge,
-      color: Colors.white,
+      color: Colorlib.background,
       child: Ink(
         height: 50,
         width: 50,
